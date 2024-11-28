@@ -6,6 +6,7 @@ import grade.MajorEvaluation;
 import school.School;
 import school.Score;
 import school.Student;
+import school.Subject;
 import utils.Define;
 
 import java.util.ArrayList;

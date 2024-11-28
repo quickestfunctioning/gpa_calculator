@@ -3,6 +3,7 @@ package test;
 import school.School;
 import school.Score;
 import school.Student;
+import school.Subject;
 import school.report.GenerateGradeReport;
 import utils.Define;
 
