@@ -5,18 +5,16 @@ import utils.Define;
 import java.util.ArrayList;
 
 public class Subject {
-    private String subjectName;  //과목 이름
-    private int subjectId;      // 과목 고유번호
-    private int gradeType;      // 과목 평가 방법 기본은 A,B 방식
+    private String subjectName;
+    private int subjectId;
+    private int gradeType;
 
-    //수강 신청한 학생 리스트
-    //register() 메서드를 호출하면 리스트에 추가 됨
     private ArrayList<Student> studentList = new ArrayList<Student>();
 
     public Subject(String subjectName, int subjectId){
         this.subjectName = subjectName;
         this.subjectId = subjectId;
-        this.gradeType = Define.AB_TYPE;   //기본적으로 A, B 타입
+        this.gradeType = Define.AB_TYPE;
     }
 
     public String getSubjectName() {

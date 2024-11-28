@@ -1,9 +1,9 @@
 package school;
 
 public class Score {
-    int studentId;   //학번
-    Subject subject; //과목
-    int point;      //점수
+    int studentId;
+    Subject subject;
+    int point;
 
     public Score( int studentId, Subject subject, int point){
         this.studentId = studentId;

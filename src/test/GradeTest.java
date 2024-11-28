@@ -24,8 +24,8 @@ public class GradeTest {
         test.creatSubject();
         test.createStudent();
 
-        String report = test.gradeReport.getReport(); //성적 결과 생성
-        System.out.println(report); // 출력
+        String report = test.gradeReport.getReport();
+        System.out.println(report);
 
     }
 
@@ -79,7 +79,6 @@ public class GradeTest {
         scanner.close();
     }
 
-    //과목별 성적 입력
     public void addScoreForStudent(Student student, Subject subject, int point){
 
         Score score = new Score(student.getStudentId(), subject, point);

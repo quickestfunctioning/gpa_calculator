@@ -19,13 +19,13 @@ public class GenerateGradeReport {
     private StringBuffer buffer = new StringBuffer();
 
     public String getReport(){
-        ArrayList<Subject> subjectList = school.getSubjectList();  // 모든 과목에 대한 학점 산출
+        ArrayList<Subject> subjectList = school.getSubjectList();
         for( Subject subject : subjectList) {
             makeHeader(subject);
             makeBody(subject);
             makeFooter();
         }
-        return buffer.toString();  // String 으로 반환
+        return buffer.toString();
     }
 
     public void makeHeader(Subject subject){
@@ -38,7 +38,7 @@ public class GenerateGradeReport {
 
     public void makeBody(Subject subject){
 
-        ArrayList<Student> studentList = subject.getStudentList();  // 각 과목의 학생들
+        ArrayList<Student> studentList = subject.getStudentList();
 
         for(int i=0; i<studentList.size(); i++){
             Student student = studentList.get(i);
@@ -49,7 +49,7 @@ public class GenerateGradeReport {
             buffer.append(student.getMajorSubject().getSubjectName() + "\t");
             buffer.append(" | ");
 
-            getScoreGrade(student, subject.getSubjectId());  //학생별 해당과목 학점 계산
+            getScoreGrade(student, subject.getSubjectId());
             buffer.append("\n");
             buffer.append(LINE);
         }
@@ -60,17 +60,17 @@ public class GenerateGradeReport {
         ArrayList<Score> scoreList = student.getScoreList();
         int majorId = student.getMajorSubject().getSubjectId();
 
-        GradeEvaluation[] gradeEvaluation = {new BasicEvaluation(), new MajorEvaluation()};  //학점 평가 클래스들
+        GradeEvaluation[] gradeEvaluation = {new BasicEvaluation(), new MajorEvaluation()};
 
-        for(int i=0; i<scoreList.size(); i++){  // 학생이 가진 점수들
+        for(int i=0; i<scoreList.size(); i++){
 
             Score score = scoreList.get(i);
-            if(score.getSubject().getSubjectId() == subjectId) {  // 현재 학점을 산출할 과목
+            if(score.getSubject().getSubjectId() == subjectId) {
                 String grade;
-                if(score.getSubject().getSubjectId() == majorId)  // 중점 과목인 경우
-                    grade = gradeEvaluation[Define.SAB_TYPE].getGrade(score.getPoint());  //중점 과목 학점 평가 방법
+                if(score.getSubject().getSubjectId() == majorId)
+                    grade = gradeEvaluation[Define.SAB_TYPE].getGrade(score.getPoint());
                 else
-                    grade = gradeEvaluation[Define.AB_TYPE].getGrade(score.getPoint()); // 중점 과목이 아닌 경우
+                    grade = gradeEvaluation[Define.AB_TYPE].getGrade(score.getPoint());
                 buffer.append(score.getPoint());
                 buffer.append(":");
                 buffer.append(grade);

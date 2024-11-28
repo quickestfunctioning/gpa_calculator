@@ -7,8 +7,6 @@ import school.Subject;
 import school.report.GenerateGradeReport;
 import utils.Define;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class TestMain {
     School goodSchool = School.getInstance();
     Subject korean;
@@ -23,12 +21,11 @@ public class TestMain {
         test.creatSubject();
         test.createStudent();
 
-        String report = test.gradeReport.getReport(); //성적 결과 생성
-        System.out.println(report); // 출력
+        String report = test.gradeReport.getReport();
+        System.out.println(report);
 
     }
 
-    //테스트 과목 생성
     public void creatSubject(){
 
         korean = new Subject("국어", Define.KOREAN);
@@ -81,7 +78,6 @@ public class TestMain {
         addScoreForStudent(student5, math, 56);
     }
 
-    //과목별 성적 입력
     public void addScoreForStudent(Student student, Subject subject, int point){
 
         Score score = new Score(student.getStudentId(), subject, point);
